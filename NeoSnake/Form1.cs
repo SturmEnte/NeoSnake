@@ -42,7 +42,21 @@ namespace NeoSnake
 
         private void game_timer_Tick(object sender, EventArgs e)
         {
-           
+            switch(direction)
+            {
+                case Direction.LEFT:
+                    headX--;
+                    break;
+                case Direction.UP:
+                    headY++;
+                    break;
+                case Direction.RIGHT:
+                    headX++;
+                    break;
+                case Direction.DOWN:
+                    headY--;
+                    break;
+            }
             
             render();
         }
