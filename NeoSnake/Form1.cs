@@ -13,6 +13,8 @@ namespace NeoSnake
 
         const int START_BODY_ELEMENTS = 3;
 
+        int tick = 0;
+
         PictureBox[,] gameField;
 
         Position head = new Position((int)Math.Round(FIELD_COUNT_X / (float)2), (int)Math.Round(FIELD_COUNT_Y / (float)2));
@@ -45,6 +47,9 @@ namespace NeoSnake
                 }
             }
 
+            // Set window size to game field size
+            // TBD
+
             // Add initial snake body elements
             body = new Position[START_BODY_ELEMENTS];
             
@@ -63,6 +68,8 @@ namespace NeoSnake
 
         private void game_timer_Tick(object sender, EventArgs e)
         {
+            tick++;
+            lbl_tick.Text = tick.ToString();
             // Move snake
             switch (direction)
             {
