@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+
 namespace NeoSnake
 {
     public partial class Form1 : Form
@@ -10,8 +13,9 @@ namespace NeoSnake
 
         PictureBox[,] gameField;
 
-        int headX = 0;
-        int headY = 0;
+        Position head = new Position((int)Math.Round(FIELD_COUNT_X / (float)2), (int)Math.Round(FIELD_COUNT_Y / (float)2));
+
+        ArrayList body = new ArrayList();
 
         Direction direction = Direction.RIGHT;
 
@@ -22,6 +26,7 @@ namespace NeoSnake
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Initialize game field array
             gameField = new PictureBox[FIELD_COUNT_X, FIELD_COUNT_Y];
 
             for (int y = 0; y < FIELD_COUNT_Y; y++) 
@@ -36,6 +41,10 @@ namespace NeoSnake
                 }
             }
 
+            // Add initial snake body elements
+            // TBD
+
+            // Start game timer
             game_timer.Enabled = true;
             game_timer.Start();
         }
@@ -45,16 +54,16 @@ namespace NeoSnake
             switch(direction)
             {
                 case Direction.LEFT:
-                    headX--;
+                    head.x--;
                     break;
                 case Direction.UP:
-                    headY++;
+                    head.y++;
                     break;
                 case Direction.RIGHT:
-                    headX++;
+                    head.x++;
                     break;
                 case Direction.DOWN:
-                    headY--;
+                    head.y--;
                     break;
             }
             
@@ -67,7 +76,7 @@ namespace NeoSnake
             {
                 for (int y = 0; y < FIELD_COUNT_Y; y++)
                 {
-                    if (headX == x && headY == y)
+                    if (head.x == x && head.y == y)
                     {
                         gameField[x, y].BackColor = Color.DarkGreen;
                         continue;
@@ -83,5 +92,14 @@ namespace NeoSnake
     enum Direction
     {
         LEFT, RIGHT, UP, DOWN
+    }
+
+    class Position
+    {
+        public int x, y;
+        public Position(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
     }
 }
