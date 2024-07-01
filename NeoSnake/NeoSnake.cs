@@ -2,15 +2,13 @@ namespace NeoSnake
 {
     public partial class SnakeForm : Form
     {
-        const int FIELD_COUNT_X = 20;
-        const int FIELD_COUNT_Y = 20;
+        const int FIELD_COUNT_X = 4;
+        const int FIELD_COUNT_Y = 4;
 
-        const int FIELD_WIDTH = 20;
-        const int FIELD_HEIGHT = 20;
+        const int FIELD_WIDTH = 50;
+        const int FIELD_HEIGHT = 50;
 
-        const int START_BODY_ELEMENTS = 3;
-
-        int tick = 0;
+        const int START_BODY_ELEMENTS = 2;
 
         bool running = true;
 
@@ -169,8 +167,34 @@ namespace NeoSnake
 
         private void spawnApple()
         {
-            // TBD: Only spawn apple in non player position
-            apple = new Position(random.Next(0, FIELD_COUNT_X), random.Next(0, FIELD_COUNT_Y));
+            // Spawn a new apple at a random position
+            // If the new apple is spawned inside the player, then spawn a new one until one is spawned outside the player
+            while (true)
+            {
+                apple = new Position(random.Next(0, FIELD_COUNT_X), random.Next(0, FIELD_COUNT_Y));
+                
+                if(head.x == apple.x && head.y == apple.y)
+                {
+                    continue;
+                }
+
+                bool shouldBreak = true;
+
+                for(int i = 0; i < body.Count; i++)
+                {
+                    if (body[i].x == apple.x && body[i].y == apple.y)
+                    {
+                        shouldBreak = false;
+                        break;
+                    }
+                }
+
+                if(shouldBreak)
+                {
+                    break;
+                }
+            }
+            
         }
 
         private bool isGameOver()
