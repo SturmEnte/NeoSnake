@@ -147,6 +147,9 @@ namespace NeoSnake
                 if (body[i].x == head.x && body[i].y == head.y) return true;
             }
 
+            // Check if won
+            // TBD
+
             return false;
         }
 
