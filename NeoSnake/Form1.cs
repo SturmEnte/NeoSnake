@@ -86,19 +86,22 @@ namespace NeoSnake
 
         private void render()
         {
+            // Clear game field
             for (int x = 0; x < FIELD_COUNT_X; x++)
             {
                 for (int y = 0; y < FIELD_COUNT_Y; y++)
                 {
-                    if (head.x == x && head.y == y)
-                    {
-                        gameField[x, y].BackColor = Color.DarkGreen;
-                        continue;
-                    }
-
-
                     gameField[x, y].BackColor = Color.White;
                 }
+            }
+
+            // Render head
+            gameField[head.x, head.y].BackColor = Color.DarkGreen;
+
+            // Render body
+            for(int i = 0; i < body.Length; i++)
+            {
+                gameField[body[i].x, body[i].y].BackColor = Color.Green;
             }
         }
 
