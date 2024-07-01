@@ -15,11 +15,13 @@ namespace NeoSnake
 
         int tick = 0;
 
+        Random random = new Random();
+
         PictureBox[,] gameField;
 
         Position head = new Position((int)Math.Round(FIELD_COUNT_X / (float)2), (int)Math.Round(FIELD_COUNT_Y / (float)2));
-
         List<Position> body = new List<Position>();
+        Position apple;
 
         Direction direction = Direction.RIGHT;
 
@@ -53,6 +55,9 @@ namespace NeoSnake
             {
                 body.Add(new Position(head.x - (i + 1), head.y));    
             }
+
+            // Spawn apple for the first time
+            spawnApple();
 
             // Render game for the first time
             render();
@@ -129,6 +134,11 @@ namespace NeoSnake
             {
                 gameField[body[i].x, body[i].y].BackColor = Color.Green;
             }
+        }
+
+        private void spawnApple()
+        {
+            apple = new Position(random.Next(0, FIELD_COUNT_X), random.Next(0, FIELD_COUNT_Y));
         }
 
         private void SnakeForm_KeyDown(object sender, KeyEventArgs e)
