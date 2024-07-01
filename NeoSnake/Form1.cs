@@ -17,7 +17,9 @@ namespace NeoSnake
 
         Position head = new Position((int)Math.Round(FIELD_COUNT_X / (float)2), (int)Math.Round(FIELD_COUNT_Y / (float)2));
 
-        ArrayList body = new ArrayList();
+        //ArrayList body = new ArrayList();
+
+        Position[] body;
 
         Direction direction = Direction.RIGHT;
 
@@ -44,7 +46,12 @@ namespace NeoSnake
             }
 
             // Add initial snake body elements
-            // TBD
+            body = new Position[START_BODY_ELEMENTS];
+            
+            for (int i = 0; i < START_BODY_ELEMENTS; i++) 
+            {
+                body[i] = new Position(head.x - (i + 1), head.y);    
+            }
 
             // Start game timer
             game_timer.Enabled = true;
@@ -70,7 +77,7 @@ namespace NeoSnake
                     break;
             }
 
-            // Render game
+            // Render game fields
             render();
         }
 
