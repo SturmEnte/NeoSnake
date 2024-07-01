@@ -133,26 +133,6 @@ namespace NeoSnake
             if(running) render();
         }
 
-        private bool isGameOver() 
-        {
-            // Check if snake is outside of the game field
-            if(head.x < 0 || head.x >= FIELD_COUNT_X || head.y < 0 || head.y >= FIELD_COUNT_Y)
-            {
-                return true;
-            }
-
-            // Check if the snake is inside its self
-            for(int i = 0; i < body.Count; i++)
-            {
-                if (body[i].x == head.x && body[i].y == head.y) return true;
-            }
-
-            // Check if won
-            // TBD
-
-            return false;
-        }
-
         private void render()
         {
             // Clear game field
@@ -180,6 +160,26 @@ namespace NeoSnake
         private void spawnApple()
         {
             apple = new Position(random.Next(0, FIELD_COUNT_X), random.Next(0, FIELD_COUNT_Y));
+        }
+
+        private bool isGameOver()
+        {
+            // Check if snake is outside of the game field
+            if (head.x < 0 || head.x >= FIELD_COUNT_X || head.y < 0 || head.y >= FIELD_COUNT_Y)
+            {
+                return true;
+            }
+
+            // Check if the snake is inside its self
+            for (int i = 0; i < body.Count; i++)
+            {
+                if (body[i].x == head.x && body[i].y == head.y) return true;
+            }
+
+            // Check if won
+            // TBD
+
+            return false;
         }
 
         private void SnakeForm_KeyDown(object sender, KeyEventArgs e)
