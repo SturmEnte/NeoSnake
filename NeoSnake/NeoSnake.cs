@@ -24,14 +24,17 @@ namespace NeoSnake
 
         public SnakeForm()
         {
+            // Initialize the game field array here to prevent a warning
+            gameField = new PictureBox[FIELD_COUNT_X, FIELD_COUNT_Y];
+            // Initialize apple to prevent the warning
+            // This position will be overwritten when initializing the form
+            apple = new Position(0, 0);
             InitializeComponent();
         }
 
         private void SnakeForm_Load(object sender, EventArgs e)
         {
             // Initialize game field array
-            gameField = new PictureBox[FIELD_COUNT_X, FIELD_COUNT_Y];
-
             for (int y = 0; y < FIELD_COUNT_Y; y++)
             {
                 for (int x = 0; x < FIELD_COUNT_X; x++)
@@ -52,9 +55,6 @@ namespace NeoSnake
             {
                 body.Add(new Position(head.x - (i + 1), head.y));    
             }
-
-            // Spawn apple for the first time
-            spawnApple();
 
             // Render game for the first time
             render();
