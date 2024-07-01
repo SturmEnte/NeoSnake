@@ -3,13 +3,15 @@ using System.Collections;
 
 namespace NeoSnake
 {
-    public partial class Form1 : Form
+    public partial class SnakeForm : Form
     {
         const int FIELD_COUNT_X = 20;
         const int FIELD_COUNT_Y = 20;
 
         const int FIELD_WIDTH = 20;
         const int FIELD_HEIGHT = 20;
+
+        const int START_BODY_ELEMENTS = 3;
 
         PictureBox[,] gameField;
 
@@ -19,7 +21,7 @@ namespace NeoSnake
 
         Direction direction = Direction.RIGHT;
 
-        public Form1()
+        public SnakeForm()
         {
             InitializeComponent();
         }

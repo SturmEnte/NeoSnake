@@ -1,6 +1,6 @@
 ﻿namespace NeoSnake
 {
-    partial class Form1
+    partial class SnakeForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -37,13 +37,13 @@
             game_timer.Interval = 1000;
             game_timer.Tick += game_timer_Tick;
             // 
-            // Form1
+            // SnakeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "SnakeForm";
+            Text = "NeoSnake";
             Load += Form1_Load;
             ResumeLayout(false);
         }
