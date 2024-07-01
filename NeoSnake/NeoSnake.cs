@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Threading.Tasks.Dataflow;
-
 namespace NeoSnake
 {
     public partial class SnakeForm : Form
