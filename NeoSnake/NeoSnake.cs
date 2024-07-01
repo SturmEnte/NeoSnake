@@ -73,10 +73,6 @@ namespace NeoSnake
         {
             Position buttPosition = new Position(body[body.Count - 1].x, body[body.Count - 1].y);
 
-            // Update tick timer
-            tick++;
-            lbl_tick.Text = tick.ToString();
-
             // Move snake body
             List<Position> newBody = new List<Position>();
 
