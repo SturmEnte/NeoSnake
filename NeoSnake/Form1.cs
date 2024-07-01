@@ -19,9 +19,6 @@ namespace NeoSnake
 
         Position head = new Position((int)Math.Round(FIELD_COUNT_X / (float)2), (int)Math.Round(FIELD_COUNT_Y / (float)2));
 
-        //ArrayList body = new ArrayList();
-
-        //Position[] body;
         List<Position> body = new List<Position>();
 
         Direction direction = Direction.RIGHT;
@@ -52,8 +49,6 @@ namespace NeoSnake
             // TBD
 
             // Add initial snake body elements
-            //body = new Position[START_BODY_ELEMENTS];
-
             for (int i = 0; i < START_BODY_ELEMENTS; i++) 
             {
                 body.Add(new Position(head.x - (i + 1), head.y));    
@@ -73,7 +68,6 @@ namespace NeoSnake
             lbl_tick.Text = tick.ToString();
 
             // Move snake body
-            //Position[] newBody = new Position[body.Length];
             List<Position> newBody = new List<Position>();
 
             for(int i = 0; i < body.Count; i++)
