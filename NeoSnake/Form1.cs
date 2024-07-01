@@ -59,13 +59,13 @@ namespace NeoSnake
                     head.x--;
                     break;
                 case Direction.UP:
-                    head.y++;
+                    head.y--;
                     break;
                 case Direction.RIGHT:
                     head.x++;
                     break;
                 case Direction.DOWN:
-                    head.y--;
+                    head.y++;
                     break;
             }
             
