@@ -155,6 +155,7 @@ namespace NeoSnake
 
         private void spawnApple()
         {
+            // TBD: Only spawn apple in non player position
             apple = new Position(random.Next(0, FIELD_COUNT_X), random.Next(0, FIELD_COUNT_Y));
         }
 
@@ -180,6 +181,7 @@ namespace NeoSnake
 
         private void SnakeForm_KeyDown(object sender, KeyEventArgs e)
         {
+            // TBD: Only allow left or right move ments relative to the current direction
             switch(e.KeyCode)
             {
                 case Keys.Left:
