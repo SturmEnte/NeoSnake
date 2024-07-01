@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Threading.Tasks.Dataflow;
 
 namespace NeoSnake
 {
@@ -123,6 +124,23 @@ namespace NeoSnake
             {
                 game_timer.Stop();
                 running = false;
+
+                Label resultLabel = new Label();
+
+                if (hasWon())
+                {
+                    resultLabel.Text = "You've won!";
+                } else
+                {
+                    resultLabel.Text = "You've lost!";
+                }
+
+                resultLabel.Font = new Font("Consolas", 20);
+                resultLabel.AutoSize = true;
+                resultLabel.BackColor = Color.Transparent; // TBD: Fix this. This does not work for some reason
+                resultLabel.SetBounds(this.Width / 2 - resultLabel.Width / 2, this.Height / 2 - resultLabel.Height / 2, resultLabel.Width, resultLabel.Height);
+                Controls.Add(resultLabel);
+                resultLabel.BringToFront();
             }
 
             // Render game fields
@@ -174,8 +192,20 @@ namespace NeoSnake
             }
 
             // Check if won
-            // TBD
+            if(hasWon())
+            {
+                return true;
+            }
 
+            return false;
+        }
+
+        private bool hasWon()
+        {
+            if (body.Count == FIELD_COUNT_X * FIELD_COUNT_Y - 1)
+            {
+                return true;
+            }
             return false;
         }
 
