@@ -21,7 +21,8 @@ namespace NeoSnake
 
         //ArrayList body = new ArrayList();
 
-        Position[] body;
+        //Position[] body;
+        List<Position> body = new List<Position>();
 
         Direction direction = Direction.RIGHT;
 
@@ -51,11 +52,11 @@ namespace NeoSnake
             // TBD
 
             // Add initial snake body elements
-            body = new Position[START_BODY_ELEMENTS];
-            
+            //body = new Position[START_BODY_ELEMENTS];
+
             for (int i = 0; i < START_BODY_ELEMENTS; i++) 
             {
-                body[i] = new Position(head.x - (i + 1), head.y);    
+                body.Add(new Position(head.x - (i + 1), head.y));    
             }
 
             // Render game for the first time
@@ -73,19 +74,24 @@ namespace NeoSnake
 
             // Move snake
             // Move body
-            Position[] newBody = new Position[body.Length];
-            
-            for(int i = 0; i < body.Length; i++)
+            //Position[] newBody = new Position[body.Length];
+            List<Position> newBody = new List<Position>();
+
+            for(int i = 0; i < body.Count; i++)
             {
                 if (i == 0)
                 {
-                    newBody[i] = new Position(head.x, head.y);
-                    break;
+                    newBody.Add(new Position(head.x, head.y));
+                    continue; // If you change this to break the snake will look like its cut in half at the start
                 }
-                newBody[i] = new Position(body[i - 1].x, body[i - 1].y);
+                newBody.Add(new Position(body[i - 1].x, body[i - 1].y));
             }
 
-            body = newBody;
+            body.Clear();
+            for(int i = 0; i < newBody.Count; i++)
+            {
+                body.Add(newBody[i]);
+            }
 
             // Move head
             switch (direction)
@@ -126,7 +132,7 @@ namespace NeoSnake
             gameField[head.x, head.y].BackColor = Color.DarkGreen;
 
             // Render body
-            for(int i = 0; i < body.Length; i++)
+            for(int i = 0; i < body.Count; i++)
             {
                 gameField[body[i].x, body[i].y].BackColor = Color.Green;
             }
