@@ -53,6 +53,7 @@ namespace NeoSnake
 
         private void game_timer_Tick(object sender, EventArgs e)
         {
+            // Move snake
             switch (direction)
             {
                 case Direction.LEFT:
@@ -69,6 +70,7 @@ namespace NeoSnake
                     break;
             }
 
+            // Render game
             render();
         }
 
