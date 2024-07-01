@@ -134,6 +134,9 @@ namespace NeoSnake
             {
                 gameField[body[i].x, body[i].y].BackColor = Color.Green;
             }
+
+            // Render apple
+            gameField[apple.x, apple.y].BackColor = Color.DarkRed;
         }
 
         private void spawnApple()
