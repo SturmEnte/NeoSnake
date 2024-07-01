@@ -132,6 +132,7 @@ namespace NeoSnake
                 resultLabel.Font = new Font("Consolas", 20);
                 resultLabel.AutoSize = true;
                 resultLabel.BackColor = Color.Transparent; // TBD: Fix this. This does not work for some reason
+                // TBD: Fix centering
                 resultLabel.SetBounds(this.Width / 2 - resultLabel.Width / 2, this.Height / 2 - resultLabel.Height / 2, resultLabel.Width, resultLabel.Height);
                 Controls.Add(resultLabel);
                 resultLabel.BringToFront();
