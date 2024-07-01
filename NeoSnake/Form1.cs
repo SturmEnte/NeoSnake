@@ -15,6 +15,8 @@ namespace NeoSnake
 
         int tick = 0;
 
+        bool running = true;
+
         Random random = new Random();
 
         PictureBox[,] gameField;
@@ -121,10 +123,31 @@ namespace NeoSnake
             }
 
             // Check if game is over
-            // TBD
+            if(isGameOver())
+            {
+                game_timer.Stop();
+                running = false;
+            }
 
             // Render game fields
-            render();
+            if(running) render();
+        }
+
+        private bool isGameOver() 
+        {
+            // Check if snake is outside of the game field
+            if(head.x < 0 || head.x >= FIELD_COUNT_X || head.y < 0 || head.y >= FIELD_COUNT_Y)
+            {
+                return true;
+            }
+
+            // Check if the snake is inside its self
+            for(int i = 0; i < body.Count; i++)
+            {
+                if (body[i].x == head.x && body[i].y == head.y) return true;
+            }
+
+            return false;
         }
 
         private void render()

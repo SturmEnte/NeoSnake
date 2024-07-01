@@ -35,7 +35,7 @@
             // 
             // game_timer
             // 
-            game_timer.Interval = 1000;
+            game_timer.Interval = 500;
             game_timer.Tick += game_timer_Tick;
             // 
             // lbl_tick
