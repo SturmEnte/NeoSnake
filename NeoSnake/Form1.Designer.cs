@@ -42,9 +42,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            KeyPreview = true;
             Name = "SnakeForm";
             Text = "NeoSnake";
-            Load += Form1_Load;
+            Load += SnakeForm_Load;
+            KeyDown += SnakeForm_KeyDown;
             ResumeLayout(false);
         }
 

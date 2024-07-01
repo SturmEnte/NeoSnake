@@ -26,14 +26,14 @@ namespace NeoSnake
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void SnakeForm_Load(object sender, EventArgs e)
         {
             // Initialize game field array
             gameField = new PictureBox[FIELD_COUNT_X, FIELD_COUNT_Y];
 
-            for (int y = 0; y < FIELD_COUNT_Y; y++) 
-            { 
-                for(int x = 0; x < FIELD_COUNT_X; x++)
+            for (int y = 0; y < FIELD_COUNT_Y; y++)
+            {
+                for (int x = 0; x < FIELD_COUNT_X; x++)
                 {
                     PictureBox gameTile = new PictureBox();
                     gameTile.BorderStyle = BorderStyle.FixedSingle;
@@ -53,7 +53,7 @@ namespace NeoSnake
 
         private void game_timer_Tick(object sender, EventArgs e)
         {
-            switch(direction)
+            switch (direction)
             {
                 case Direction.LEFT:
                     head.x--;
@@ -68,13 +68,13 @@ namespace NeoSnake
                     head.y++;
                     break;
             }
-            
+
             render();
         }
 
-        private void render() 
+        private void render()
         {
-            for (int x = 0; x < FIELD_COUNT_X; x++) 
+            for (int x = 0; x < FIELD_COUNT_X; x++)
             {
                 for (int y = 0; y < FIELD_COUNT_Y; y++)
                 {
@@ -85,8 +85,29 @@ namespace NeoSnake
                     }
 
 
-                    gameField[x,y].BackColor = Color.White;
+                    gameField[x, y].BackColor = Color.White;
                 }
+            }
+        }
+
+        private void SnakeForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch(e.KeyCode)
+            {
+                case Keys.Left:
+                    direction = Direction.LEFT;
+                    break;
+                case Keys.Up:
+                    direction = Direction.UP; 
+                    break;
+                case Keys.Right:
+                    direction = Direction.RIGHT;
+                    break;
+                case Keys.Down:
+                    direction = Direction.DOWN;
+                    break;
+                default:
+                    break;
             }
         }
     }
