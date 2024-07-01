@@ -72,8 +72,7 @@ namespace NeoSnake
             tick++;
             lbl_tick.Text = tick.ToString();
 
-            // Move snake
-            // Move body
+            // Move snake body
             //Position[] newBody = new Position[body.Length];
             List<Position> newBody = new List<Position>();
 
@@ -93,7 +92,7 @@ namespace NeoSnake
                 body.Add(newBody[i]);
             }
 
-            // Move head
+            // Move snake head
             switch (direction)
             {
                 case Direction.LEFT:
