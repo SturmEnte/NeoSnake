@@ -53,6 +53,9 @@ namespace NeoSnake
                 body[i] = new Position(head.x - (i + 1), head.y);    
             }
 
+            // Render game for the first time
+            render();
+
             // Start game timer
             game_timer.Enabled = true;
             game_timer.Start();
