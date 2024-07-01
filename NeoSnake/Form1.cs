@@ -70,7 +70,24 @@ namespace NeoSnake
         {
             tick++;
             lbl_tick.Text = tick.ToString();
+
             // Move snake
+            // Move body
+            Position[] newBody = new Position[body.Length];
+            
+            for(int i = 0; i < body.Length; i++)
+            {
+                if (i == 0)
+                {
+                    newBody[i] = new Position(head.x, head.y);
+                    break;
+                }
+                newBody[i] = new Position(body[i - 1].x, body[i - 1].y);
+            }
+
+            body = newBody;
+
+            // Move head
             switch (direction)
             {
                 case Direction.LEFT:
@@ -86,6 +103,9 @@ namespace NeoSnake
                     head.y++;
                     break;
             }
+
+            // Check if game is over
+            // TBD
 
             // Render game fields
             render();
