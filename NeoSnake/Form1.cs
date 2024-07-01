@@ -69,6 +69,9 @@ namespace NeoSnake
 
         private void game_timer_Tick(object sender, EventArgs e)
         {
+            Position buttPosition = new Position(body[body.Count - 1].x, body[body.Count - 1].y);
+
+            // Update tick timer
             tick++;
             lbl_tick.Text = tick.ToString();
 
@@ -106,6 +109,15 @@ namespace NeoSnake
                 case Direction.DOWN:
                     head.y++;
                     break;
+            }
+
+            // Check if the head is inside/ontop/below the apple (eating mechanic)
+            if(head.x == apple.x && head.y == apple.y)
+            { 
+                body.Add(buttPosition);
+
+                // Spawn a new apple
+                spawnApple();
             }
 
             // Check if game is over
