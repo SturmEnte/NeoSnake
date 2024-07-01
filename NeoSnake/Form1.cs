@@ -10,6 +10,11 @@ namespace NeoSnake
 
         PictureBox[,] gameField;
 
+        int headX = 0;
+        int headY = 0;
+
+        Direction direction = Direction.RIGHT;
+
         public Form1()
         {
             InitializeComponent();
@@ -30,11 +35,39 @@ namespace NeoSnake
                     Controls.Add(gameTile);
                 }
             }
+
+            game_timer.Enabled = true;
+            game_timer.Start();
         }
 
         private void game_timer_Tick(object sender, EventArgs e)
         {
-
+           
+            
+            render();
         }
+
+        private void render() 
+        {
+            for (int x = 0; x < FIELD_COUNT_X; x++) 
+            {
+                for (int y = 0; y < FIELD_COUNT_Y; y++)
+                {
+                    if (headX == x && headY == y)
+                    {
+                        gameField[x, y].BackColor = Color.DarkGreen;
+                        continue;
+                    }
+
+
+                    gameField[x,y].BackColor = Color.White;
+                }
+            }
+        }
+    }
+
+    enum Direction
+    {
+        LEFT, RIGHT, UP, DOWN
     }
 }
