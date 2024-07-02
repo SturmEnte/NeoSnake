@@ -2,8 +2,8 @@ namespace NeoSnake
 {
     public partial class SnakeForm : Form
     {
-        const int FIELD_COUNT_X = 2;
-        const int FIELD_COUNT_Y = 2;
+        const int FIELD_COUNT_X = 6;
+        const int FIELD_COUNT_Y = 6;
 
         const int FIELD_WIDTH = 50;
         const int FIELD_HEIGHT = 50;
@@ -239,20 +239,33 @@ namespace NeoSnake
 
         private void SnakeForm_KeyDown(object sender, KeyEventArgs e)
         {
-            // TBD: Only allow left or right move ments relative to the current direction
+            // Set moving direction of the snake based on the inputs
+            // Also preventing that the snake just "reverses" 
             switch(e.KeyCode)
             {
                 case Keys.Left:
-                    direction = Direction.LEFT;
+                    if(direction == Direction.UP || direction == Direction.DOWN)
+                    {
+                        direction = Direction.LEFT;
+                    }
                     break;
                 case Keys.Up:
-                    direction = Direction.UP; 
+                    if (direction == Direction.LEFT || direction == Direction.RIGHT)
+                    {
+                        direction = Direction.UP;
+                    }
                     break;
                 case Keys.Right:
-                    direction = Direction.RIGHT;
+                    if (direction == Direction.UP || direction == Direction.DOWN)
+                    {
+                        direction = Direction.RIGHT;
+                    }
                     break;
                 case Keys.Down:
-                    direction = Direction.DOWN;
+                    if (direction == Direction.LEFT || direction == Direction.RIGHT)
+                    {
+                        direction = Direction.DOWN;
+                    }
                     break;
                 default:
                     break;
