@@ -116,26 +116,7 @@ namespace NeoSnake
 
         private void render(bool renderApple = true)
         {
-            // Clear game field
-            for (int x = 0; x < FIELD_COUNT_X; x++)
-            {
-                for (int y = 0; y < FIELD_COUNT_Y; y++)
-                {
-                    gameField[x, y].BackColor = Color.White;
-                }
-            }
-
-            // Render head
-            gameField[head.x, head.y].BackColor = Color.DarkGreen;
-
-            // Render body
-            for(int i = 0; i < body.Count; i++)
-            {
-                gameField[body[i].x, body[i].y].BackColor = Color.Green;
-            }
-
-            // Render apple
-            if(renderApple) gameField[apple.x, apple.y].BackColor = Color.DarkRed;
+            
         }
 
         private void spawnApple()

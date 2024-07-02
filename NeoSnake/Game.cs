@@ -48,12 +48,12 @@ namespace NeoSnake
                     gameTile.BorderStyle = BorderStyle.FixedSingle;
                     gameTile.SetBounds(x * fieldWidth, y * fieldHeight, fieldWidth, fieldHeight);
                     gameField[x, y] = gameTile;
-                    // Controls.Add(gameTile);
+                    Controls.Add(gameTile);
                 }
             }
 
             // Set window size to game field size
-            // this.ClientSize = new Size(fieldsX * fieldWidth, fieldsY * fieldHeight);
+            this.ClientSize = new Size(fieldsX * fieldWidth, fieldsY * fieldHeight);
 
             // Add initial snake body elements
             for (int i = 0; i < startingBodyElements; i++)
@@ -83,9 +83,28 @@ namespace NeoSnake
 
         }
 
-        private void render()
+        private void render(bool renderApple = false)
         {
+            // Clear game field
+            for (int x = 0; x < fieldsX; x++)
+            {
+                for (int y = 0; y < fieldsY; y++)
+                {
+                    gameField[x, y].BackColor = Color.White;
+                }
+            }
 
+            // Render head
+            gameField[head.x, head.y].BackColor = Color.DarkGreen;
+
+            // Render body
+            for (int i = 0; i < body.Count; i++)
+            {
+                gameField[body[i].x, body[i].y].BackColor = Color.Green;
+            }
+
+            // Render apple
+            if (renderApple) gameField[apple.x, apple.y].BackColor = Color.DarkRed;
         }
     }
 }
