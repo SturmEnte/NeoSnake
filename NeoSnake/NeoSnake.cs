@@ -282,11 +282,6 @@ namespace NeoSnake
         }
     }
 
-    enum Direction
-    {
-        LEFT, RIGHT, UP, DOWN
-    }
-
     class Position
     {
         public int x, y;
