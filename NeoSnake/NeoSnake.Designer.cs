@@ -42,7 +42,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NeoSnake";
             Load += SnakeForm_Load;
-            KeyDown += SnakeForm_KeyDown;
             ResumeLayout(false);
         }
 
