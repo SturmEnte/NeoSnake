@@ -19,12 +19,13 @@ namespace NeoSnake
 
         private void SnakeForm_Load(object sender, EventArgs e)
         {
-            this.ClientSize = new Size(panel_menu.Width, panel_menu.Height);
+            // Move start menu to the top left corner
             panel_menu.Left = 0;
             panel_menu.Top = 0;
+            // Resize window to start menu size
+            this.ClientSize = new Size(panel_menu.Width, panel_menu.Height);
+            // Center the window aftert resizing it
             this.CenterToScreen();
-            //Game game = new Game(FIELD_COUNT_X, FIELD_COUNT_Y, FIELD_WIDTH, FIELD_HEIGHT, 500, START_BODY_ELEMENTS, this);
-            //game.start();
         }
 
         // Centers the window to the screen
