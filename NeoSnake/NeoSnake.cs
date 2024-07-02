@@ -10,6 +10,8 @@ namespace NeoSnake
 
         const int START_BODY_ELEMENTS = 1; // TBD: If less than 1, it will crash
 
+        Game game;
+
         public SnakeForm()
         {
             InitializeComponent();
@@ -30,6 +32,13 @@ namespace NeoSnake
         public void Center()
         {
             this.CenterToScreen();
+        }
+
+        private void button_start_Click(object sender, EventArgs e)
+        {
+            panel_menu.Hide();
+            game = new Game((int)num_fields_x.Value, (int)num_fields_y.Value, (int)num_size_x.Value, (int)num_size_y.Value, (int)num_tick_duration.Value, (int)num_start_body_elements.Value, this);
+            game.start();
         }
     }
 }

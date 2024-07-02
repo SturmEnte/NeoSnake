@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             panel_menu = new Panel();
+            lbl_y = new Label();
+            lbl_x = new Label();
+            lbl_starting_body_elements = new Label();
+            lbl_tick_duration = new Label();
             lbl_fields = new Label();
             lbl_size = new Label();
             lbl_title = new Label();
             button_start = new Button();
-            num_start_body_parts = new NumericUpDown();
+            num_start_body_elements = new NumericUpDown();
             num_tick_duration = new NumericUpDown();
             num_fields_y = new NumericUpDown();
             num_fields_x = new NumericUpDown();
             num_size_y = new NumericUpDown();
             num_size_x = new NumericUpDown();
-            lbl_tick_duration = new Label();
-            lbl_starting_body_parts = new Label();
-            lbl_x = new Label();
-            lbl_y = new Label();
             panel_menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)num_start_body_parts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)num_start_body_elements).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_tick_duration).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_fields_y).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_fields_x).BeginInit();
@@ -56,13 +56,13 @@
             // 
             panel_menu.Controls.Add(lbl_y);
             panel_menu.Controls.Add(lbl_x);
-            panel_menu.Controls.Add(lbl_starting_body_parts);
+            panel_menu.Controls.Add(lbl_starting_body_elements);
             panel_menu.Controls.Add(lbl_tick_duration);
             panel_menu.Controls.Add(lbl_fields);
             panel_menu.Controls.Add(lbl_size);
             panel_menu.Controls.Add(lbl_title);
             panel_menu.Controls.Add(button_start);
-            panel_menu.Controls.Add(num_start_body_parts);
+            panel_menu.Controls.Add(num_start_body_elements);
             panel_menu.Controls.Add(num_tick_duration);
             panel_menu.Controls.Add(num_fields_y);
             panel_menu.Controls.Add(num_fields_x);
@@ -72,6 +72,44 @@
             panel_menu.Name = "panel_menu";
             panel_menu.Size = new Size(367, 318);
             panel_menu.TabIndex = 0;
+            // 
+            // lbl_y
+            // 
+            lbl_y.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            lbl_y.AutoSize = true;
+            lbl_y.Location = new Point(170, 116);
+            lbl_y.Name = "lbl_y";
+            lbl_y.Size = new Size(14, 15);
+            lbl_y.TabIndex = 13;
+            lbl_y.Text = "Y";
+            // 
+            // lbl_x
+            // 
+            lbl_x.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            lbl_x.AutoSize = true;
+            lbl_x.Location = new Point(170, 87);
+            lbl_x.Name = "lbl_x";
+            lbl_x.Size = new Size(14, 15);
+            lbl_x.TabIndex = 12;
+            lbl_x.Text = "X";
+            // 
+            // lbl_starting_body_elements
+            // 
+            lbl_starting_body_elements.AutoSize = true;
+            lbl_starting_body_elements.Location = new Point(214, 157);
+            lbl_starting_body_elements.Name = "lbl_starting_body_elements";
+            lbl_starting_body_elements.Size = new Size(129, 15);
+            lbl_starting_body_elements.TabIndex = 11;
+            lbl_starting_body_elements.Text = "Starting Body Elements";
+            // 
+            // lbl_tick_duration
+            // 
+            lbl_tick_duration.AutoSize = true;
+            lbl_tick_duration.Location = new Point(21, 157);
+            lbl_tick_duration.Name = "lbl_tick_duration";
+            lbl_tick_duration.Size = new Size(77, 15);
+            lbl_tick_duration.TabIndex = 10;
+            lbl_tick_duration.Text = "Tick Duration";
             // 
             // lbl_fields
             // 
@@ -110,15 +148,16 @@
             button_start.TabIndex = 6;
             button_start.Text = "Start";
             button_start.UseVisualStyleBackColor = true;
+            button_start.Click += button_start_Click;
             // 
-            // num_start_body_parts
+            // num_start_body_elements
             // 
-            num_start_body_parts.Location = new Point(214, 175);
-            num_start_body_parts.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            num_start_body_parts.Name = "num_start_body_parts";
-            num_start_body_parts.Size = new Size(120, 23);
-            num_start_body_parts.TabIndex = 5;
-            num_start_body_parts.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            num_start_body_elements.Location = new Point(214, 175);
+            num_start_body_elements.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            num_start_body_elements.Name = "num_start_body_elements";
+            num_start_body_elements.Size = new Size(120, 23);
+            num_start_body_elements.TabIndex = 5;
+            num_start_body_elements.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // num_tick_duration
             // 
@@ -172,44 +211,6 @@
             num_size_x.TabIndex = 0;
             num_size_x.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
-            // lbl_tick_duration
-            // 
-            lbl_tick_duration.AutoSize = true;
-            lbl_tick_duration.Location = new Point(21, 157);
-            lbl_tick_duration.Name = "lbl_tick_duration";
-            lbl_tick_duration.Size = new Size(77, 15);
-            lbl_tick_duration.TabIndex = 10;
-            lbl_tick_duration.Text = "Tick Duration";
-            // 
-            // lbl_starting_body_parts
-            // 
-            lbl_starting_body_parts.AutoSize = true;
-            lbl_starting_body_parts.Location = new Point(214, 157);
-            lbl_starting_body_parts.Name = "lbl_starting_body_parts";
-            lbl_starting_body_parts.Size = new Size(107, 15);
-            lbl_starting_body_parts.TabIndex = 11;
-            lbl_starting_body_parts.Text = "Starting Body Parts";
-            // 
-            // lbl_x
-            // 
-            lbl_x.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            lbl_x.AutoSize = true;
-            lbl_x.Location = new Point(170, 87);
-            lbl_x.Name = "lbl_x";
-            lbl_x.Size = new Size(14, 15);
-            lbl_x.TabIndex = 12;
-            lbl_x.Text = "X";
-            // 
-            // lbl_y
-            // 
-            lbl_y.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            lbl_y.AutoSize = true;
-            lbl_y.Location = new Point(170, 116);
-            lbl_y.Name = "lbl_y";
-            lbl_y.Size = new Size(14, 15);
-            lbl_y.TabIndex = 13;
-            lbl_y.Text = "Y";
-            // 
             // SnakeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -225,7 +226,7 @@
             Load += SnakeForm_Load;
             panel_menu.ResumeLayout(false);
             panel_menu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)num_start_body_parts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)num_start_body_elements).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_tick_duration).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_fields_y).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_fields_x).EndInit();
@@ -237,7 +238,7 @@
         #endregion
 
         private Panel panel_menu;
-        private NumericUpDown num_start_body_parts;
+        private NumericUpDown num_start_body_elements;
         private NumericUpDown num_tick_duration;
         private NumericUpDown num_fields_y;
         private NumericUpDown num_fields_x;
@@ -248,7 +249,7 @@
         private Label lbl_size;
         private Label lbl_title;
         private Label lbl_tick_duration;
-        private Label lbl_starting_body_parts;
+        private Label lbl_starting_body_elements;
         private Label lbl_y;
         private Label lbl_x;
     }
