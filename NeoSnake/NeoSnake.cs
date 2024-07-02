@@ -48,7 +48,7 @@ namespace NeoSnake
             }
 
             // Set window size to game field size
-            // TBD
+            this.ClientSize = new Size(FIELD_COUNT_X * FIELD_WIDTH, FIELD_COUNT_Y * FIELD_HEIGHT);
 
             // Add initial snake body elements
             for (int i = 0; i < START_BODY_ELEMENTS; i++) 
