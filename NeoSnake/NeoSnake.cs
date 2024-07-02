@@ -20,11 +20,6 @@ namespace NeoSnake
             
         }
 
-        private void game_timer_Tick(object sender, EventArgs e)
-        {
-            
-        }
-
         private void SnakeForm_KeyDown(object sender, KeyEventArgs e)
         {
             // Set moving direction of the snake based on the inputs
