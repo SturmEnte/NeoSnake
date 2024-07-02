@@ -10,58 +10,14 @@ namespace NeoSnake
 
         const int START_BODY_ELEMENTS = 3; // TBD: If less than 1, it will crash
 
-        bool running = true;
-
-        Random random = new Random();
-
-        PictureBox[,] gameField;
-
-        Position head = new Position((int)Math.Round(FIELD_COUNT_X / (float)2), (int)Math.Round(FIELD_COUNT_Y / (float)2));
-        List<Position> body = new List<Position>();
-        Position apple;
-
-        Direction direction = Direction.RIGHT;
-
         public SnakeForm()
         {
-            // Initialize the game field array here to prevent a warning
-            gameField = new PictureBox[FIELD_COUNT_X, FIELD_COUNT_Y];
-            // Initialize apple to prevent the warning
-            // This position will be overwritten when initializing the form
-            apple = new Position(0, 0);
             InitializeComponent();
         }
 
         private void SnakeForm_Load(object sender, EventArgs e)
         {
-            // Initialize game field array
-            for (int y = 0; y < FIELD_COUNT_Y; y++)
-            {
-                for (int x = 0; x < FIELD_COUNT_X; x++)
-                {
-                    PictureBox gameTile = new PictureBox();
-                    gameTile.BorderStyle = BorderStyle.FixedSingle;
-                    gameTile.SetBounds(x * FIELD_WIDTH, y * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT);
-                    gameField[x, y] = gameTile;
-                    Controls.Add(gameTile);
-                }
-            }
-
-            // Set window size to game field size
-            this.ClientSize = new Size(FIELD_COUNT_X * FIELD_WIDTH, FIELD_COUNT_Y * FIELD_HEIGHT);
-
-            // Add initial snake body elements
-            for (int i = 0; i < START_BODY_ELEMENTS; i++) 
-            {
-                body.Add(new Position(head.x - (i + 1), head.y));    
-            }
-
-            // Render game for the first time
-            render();
-
-            // Start game timer
-            game_timer.Enabled = true;
-            game_timer.Start();
+            
         }
 
         private void game_timer_Tick(object sender, EventArgs e)
