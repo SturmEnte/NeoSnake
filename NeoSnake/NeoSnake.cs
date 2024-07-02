@@ -17,7 +17,7 @@ namespace NeoSnake
 
         private void SnakeForm_Load(object sender, EventArgs e)
         {
-            
+            Game game = new Game(FIELD_COUNT_X, FIELD_COUNT_Y, FIELD_WIDTH, FIELD_HEIGHT, 500, 2, this);
         }
     }
 }
