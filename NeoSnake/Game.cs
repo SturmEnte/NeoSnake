@@ -57,6 +57,7 @@ namespace NeoSnake
 
             // Set window size to game field size
             snakeForm.ClientSize = new Size(fieldsX * fieldWidth, fieldsY * fieldHeight);
+            snakeForm.Center();
 
             // Add initial snake body elements
             for (int i = 0; i < startingBodyElements; i++)
