@@ -2,16 +2,9 @@ namespace NeoSnake
 {
     public partial class SnakeForm : Form
     {
-        const int FIELD_COUNT_X = 4;
-        const int FIELD_COUNT_Y = 4;
-
-        const int FIELD_WIDTH = 50;
-        const int FIELD_HEIGHT = 50;
-
-        const int START_BODY_ELEMENTS = 1; // TBD: If less than 1, it will crash
-
         Game game;
-
+            
+        // This warning can be ignored
         public SnakeForm()
         {
             InitializeComponent();
