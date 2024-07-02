@@ -40,7 +40,8 @@ namespace NeoSnake
             // Initialize apple to prevent the warning
             // This position will be overwritten when initializing the form
             this.apple = new Position(0, 0);
-            
+            spawnApple();
+
             // Initialize game field array
             for (int y = 0; y < fieldsY; y++)
             {
@@ -178,7 +179,7 @@ namespace NeoSnake
             if (running) render();
         }
 
-        private void render(bool renderApple = false)
+        private void render(bool renderApple = true)
         {
             // Clear game field
             for (int x = 0; x < fieldsX; x++)
