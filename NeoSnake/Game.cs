@@ -290,7 +290,7 @@ namespace NeoSnake
             }
 
             // Check if won
-            if (hasWon())
+            if (HasWon())
             {
                 return true;
             }

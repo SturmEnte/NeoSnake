@@ -32,7 +32,7 @@ namespace NeoSnake
         {
             panel_menu.Hide();
             game = new Game((int)num_fields_x.Value, (int)num_fields_y.Value, (int)num_size_x.Value, (int)num_size_y.Value, (int)num_tick_duration.Value, (int)num_start_body_elements.Value, this);
-            game.start();
+            game.Start();
         }
     }
 }
