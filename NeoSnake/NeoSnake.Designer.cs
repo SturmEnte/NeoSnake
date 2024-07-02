@@ -28,14 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            game_timer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
-            // 
-            // game_timer
-            // 
-            game_timer.Interval = 500;
-            game_timer.Tick += game_timer_Tick;
             // 
             // SnakeForm
             // 
@@ -49,12 +42,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NeoSnake";
             Load += SnakeForm_Load;
-            KeyDown += SnakeForm_KeyDown;
             ResumeLayout(false);
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer game_timer;
     }
 }
