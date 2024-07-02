@@ -2,13 +2,13 @@ namespace NeoSnake
 {
     public partial class SnakeForm : Form
     {
-        const int FIELD_COUNT_X = 6;
-        const int FIELD_COUNT_Y = 6;
+        const int FIELD_COUNT_X = 8;
+        const int FIELD_COUNT_Y = 8;
 
         const int FIELD_WIDTH = 50;
         const int FIELD_HEIGHT = 50;
 
-        const int START_BODY_ELEMENTS = 1; // TBD: If less than 1, it will crash
+        const int START_BODY_ELEMENTS = 3; // TBD: If less than 1, it will crash
 
         bool running = true;
 
@@ -135,7 +135,15 @@ namespace NeoSnake
                 resultLabel.AutoSize = true;
                 resultLabel.BackColor = Color.Transparent; // TBD: Fix this. This does not work for some reason
                 // TBD: Fix centering
-                resultLabel.SetBounds(this.Width / 2 - resultLabel.Width / 2, this.Height / 2 - resultLabel.Height / 2, resultLabel.Width, resultLabel.Height);
+                /*resultLabel.TextAlign = ContentAlignment.MiddleCenter;
+                resultLabel.Dock = DockStyle.None;
+                resultLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right; // Anchor to all sides
+                /*int xPosition = (this.ClientSize.Width - resultLabel.Width) / 2;
+                int yPosition = (this.ClientSize.Height - resultLabel.Height) / 2;
+                resultLabel.Top = yPosition;
+                resultLabel.Left = xPosition;*/
+                //resultLabel.SetBounds(xPosition, yPosition, resultLabel.Width, resultLabel.Height);
+                //resultLabel.Anchor = (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left);
                 Controls.Add(resultLabel);
                 resultLabel.BringToFront();
             }
