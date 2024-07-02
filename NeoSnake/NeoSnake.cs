@@ -2,13 +2,13 @@ namespace NeoSnake
 {
     public partial class SnakeForm : Form
     {
-        const int FIELD_COUNT_X = 4;
-        const int FIELD_COUNT_Y = 4;
+        const int FIELD_COUNT_X = 2;
+        const int FIELD_COUNT_Y = 2;
 
         const int FIELD_WIDTH = 50;
         const int FIELD_HEIGHT = 50;
 
-        const int START_BODY_ELEMENTS = 2;
+        const int START_BODY_ELEMENTS = 1; // TBD: If less than 1, it will crash
 
         bool running = true;
 
@@ -104,13 +104,13 @@ namespace NeoSnake
                     break;
             }
 
+            bool spawnNewApple = false;
+
             // Check if the head is inside/ontop/below the apple (eating mechanic)
             if(head.x == apple.x && head.y == apple.y)
-            { 
+            {
                 body.Add(buttPosition);
-
-                // Spawn a new apple
-                spawnApple();
+                spawnNewApple = true;
             }
 
             // Check if game is over
@@ -118,12 +118,14 @@ namespace NeoSnake
             {
                 game_timer.Stop();
                 running = false;
+                spawnNewApple = false;
 
                 Label resultLabel = new Label();
 
                 if (hasWon())
                 {
                     resultLabel.Text = "You've won!";
+                    render(false);
                 } else
                 {
                     resultLabel.Text = "You've lost!";
@@ -138,11 +140,17 @@ namespace NeoSnake
                 resultLabel.BringToFront();
             }
 
+            if(spawnNewApple)
+            {
+                // Spawn a new apple
+                spawnApple();
+            }
+
             // Render game fields
             if(running) render();
         }
 
-        private void render()
+        private void render(bool renderApple = true)
         {
             // Clear game field
             for (int x = 0; x < FIELD_COUNT_X; x++)
@@ -163,7 +171,7 @@ namespace NeoSnake
             }
 
             // Render apple
-            gameField[apple.x, apple.y].BackColor = Color.DarkRed;
+            if(renderApple) gameField[apple.x, apple.y].BackColor = Color.DarkRed;
         }
 
         private void spawnApple()
