@@ -104,13 +104,12 @@ namespace NeoSnake
                     break;
             }
 
-            bool spawnNewApple = false;
+            bool spawnNewApple = true;
 
             // Check if the head is inside/ontop/below the apple (eating mechanic)
             if(head.x == apple.x && head.y == apple.y)
             {
                 body.Add(buttPosition);
-                spawnNewApple = true;
             }
 
             // Check if game is over
