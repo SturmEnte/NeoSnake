@@ -106,5 +106,69 @@ namespace NeoSnake
             // Render apple
             if (renderApple) gameField[apple.x, apple.y].BackColor = Color.DarkRed;
         }
+
+        private void spawnApple()
+        {
+            // Spawn a new apple at a random position
+            // If the new apple is spawned inside the player, then spawn a new one until one is spawned outside the player
+            while (true)
+            {
+                apple = new Position(random.Next(0, FIELD_COUNT_X), random.Next(0, FIELD_COUNT_Y));
+
+                if (head.x == apple.x && head.y == apple.y)
+                {
+                    continue;
+                }
+
+                bool shouldBreak = true;
+
+                for (int i = 0; i < body.Count; i++)
+                {
+                    if (body[i].x == apple.x && body[i].y == apple.y)
+                    {
+                        shouldBreak = false;
+                        break;
+                    }
+                }
+
+                if (shouldBreak)
+                {
+                    break;
+                }
+            }
+
+        }
+
+        private bool isGameOver()
+        {
+            // Check if snake is outside of the game field
+            if (head.x < 0 || head.x >= FIELD_COUNT_X || head.y < 0 || head.y >= FIELD_COUNT_Y)
+            {
+                return true;
+            }
+
+            // Check if the snake is inside its self
+            for (int i = 0; i < body.Count; i++)
+            {
+                if (body[i].x == head.x && body[i].y == head.y) return true;
+            }
+
+            // Check if won
+            if (hasWon())
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool hasWon()
+        {
+            if (body.Count == FIELD_COUNT_X * FIELD_COUNT_Y - 1)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
