@@ -21,14 +21,16 @@ namespace NeoSnake
         int startingBodyElements;
 
         System.Windows.Forms.Timer gameTimer;
+        SnakeForm snakeForm;
 
-        public Game(int fieldsX, int fieldsY, int fieldWidth, int fieldHeight, int tickDuration, int startingBodyElements) 
+        public Game(int fieldsX, int fieldsY, int fieldWidth, int fieldHeight, int tickDuration, int startingBodyElements, SnakeForm snakeForm) 
         {
             this.fieldsX = fieldsX;
             this.fieldsY = fieldsY;
             this.fieldWidth = fieldWidth;
             this.fieldHeight = fieldHeight;
             this.startingBodyElements = startingBodyElements;
+            this.snakeForm = snakeForm;
 
             this.random = new Random();
 
@@ -48,18 +50,21 @@ namespace NeoSnake
                     gameTile.BorderStyle = BorderStyle.FixedSingle;
                     gameTile.SetBounds(x * fieldWidth, y * fieldHeight, fieldWidth, fieldHeight);
                     gameField[x, y] = gameTile;
-                    Controls.Add(gameTile);
+                    snakeForm.Controls.Add(gameTile);
                 }
             }
 
             // Set window size to game field size
-            this.ClientSize = new Size(fieldsX * fieldWidth, fieldsY * fieldHeight);
+            snakeForm.ClientSize = new Size(fieldsX * fieldWidth, fieldsY * fieldHeight);
 
             // Add initial snake body elements
             for (int i = 0; i < startingBodyElements; i++)
             {
                 body.Add(new Position(head.x - (i + 1), head.y));
             }
+
+            // Register key down hander
+            snakeForm.KeyDown += keyDownHandler;
 
             // Render game for the first time
             render();
@@ -159,7 +164,7 @@ namespace NeoSnake
                 resultLabel.Left = xPosition;*/
                 //resultLabel.SetBounds(xPosition, yPosition, resultLabel.Width, resultLabel.Height);
                 //resultLabel.Anchor = (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left);
-                Controls.Add(resultLabel);
+                snakeForm.Controls.Add(resultLabel);
                 resultLabel.BringToFront();
             }
 
