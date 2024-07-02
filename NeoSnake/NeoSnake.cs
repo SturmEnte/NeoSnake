@@ -1,5 +1,5 @@
 namespace NeoSnake
-{ // Test
+{
     public partial class SnakeForm : Form
     {
         const int FIELD_COUNT_X = 8;
