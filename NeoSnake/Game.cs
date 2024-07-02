@@ -197,6 +197,41 @@ namespace NeoSnake
             if (renderApple) gameField[apple.x, apple.y].BackColor = Color.DarkRed;
         }
 
+        private void keyDownHandler(object sender, KeyEventArgs e)
+        {
+            // Set moving direction of the snake based on the inputs
+            // Also preventing that the snake just "reverses" 
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    if (direction == Direction.UP || direction == Direction.DOWN)
+                    {
+                        direction = Direction.LEFT;
+                    }
+                    break;
+                case Keys.Up:
+                    if (direction == Direction.LEFT || direction == Direction.RIGHT)
+                    {
+                        direction = Direction.UP;
+                    }
+                    break;
+                case Keys.Right:
+                    if (direction == Direction.UP || direction == Direction.DOWN)
+                    {
+                        direction = Direction.RIGHT;
+                    }
+                    break;
+                case Keys.Down:
+                    if (direction == Direction.LEFT || direction == Direction.RIGHT)
+                    {
+                        direction = Direction.DOWN;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void spawnApple()
         {
             // Spawn a new apple at a random position
