@@ -70,11 +70,15 @@ namespace NeoSnake
             // Render game for the first time
             render();
 
-            // Create and start the timer
+            // Create the timer
             gameTimer = new System.Windows.Forms.Timer();
             gameTimer.Interval = tickDuration;
             gameTimer.Tick += tick;
             gameTimer.Enabled = true;
+        }
+
+        public void start()
+        {
             gameTimer.Start();
         }
 
