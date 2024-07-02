@@ -74,12 +74,12 @@ namespace NeoSnake
             gameTimer = new System.Windows.Forms.Timer();
             gameTimer.Interval = tickDuration;
             gameTimer.Tick += tick;
-            gameTimer.Enabled = true;
         }
 
         public void start()
         {
             gameTimer.Start();
+            gameTimer.Enabled = true;
         }
 
         private void tick(object? sender, EventArgs e)
