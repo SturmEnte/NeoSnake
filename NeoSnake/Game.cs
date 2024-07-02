@@ -113,7 +113,7 @@ namespace NeoSnake
             // If the new apple is spawned inside the player, then spawn a new one until one is spawned outside the player
             while (true)
             {
-                apple = new Position(random.Next(0, FIELD_COUNT_X), random.Next(0, FIELD_COUNT_Y));
+                apple = new Position(random.Next(0, fieldsX), random.Next(0, fieldsY));
 
                 if (head.x == apple.x && head.y == apple.y)
                 {
@@ -142,7 +142,7 @@ namespace NeoSnake
         private bool isGameOver()
         {
             // Check if snake is outside of the game field
-            if (head.x < 0 || head.x >= FIELD_COUNT_X || head.y < 0 || head.y >= FIELD_COUNT_Y)
+            if (head.x < 0 || head.x >= fieldsX || head.y < 0 || head.y >= fieldsY)
             {
                 return true;
             }
@@ -164,7 +164,7 @@ namespace NeoSnake
 
         private bool hasWon()
         {
-            if (body.Count == FIELD_COUNT_X * FIELD_COUNT_Y - 1)
+            if (body.Count == fieldsX * fieldsY - 1)
             {
                 return true;
             }
