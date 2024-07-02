@@ -157,7 +157,7 @@
             num_start_body_elements.Name = "num_start_body_elements";
             num_start_body_elements.Size = new Size(120, 23);
             num_start_body_elements.TabIndex = 5;
-            num_start_body_elements.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            num_start_body_elements.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
             // num_tick_duration
             // 
@@ -169,7 +169,7 @@
             num_tick_duration.Size = new Size(120, 23);
             num_tick_duration.TabIndex = 4;
             num_tick_duration.Tag = "";
-            num_tick_duration.Value = new decimal(new int[] { 100, 0, 0, 0 });
+            num_tick_duration.Value = new decimal(new int[] { 500, 0, 0, 0 });
             // 
             // num_fields_y
             // 
@@ -179,7 +179,7 @@
             num_fields_y.Name = "num_fields_y";
             num_fields_y.Size = new Size(120, 23);
             num_fields_y.TabIndex = 3;
-            num_fields_y.Value = new decimal(new int[] { 4, 0, 0, 0 });
+            num_fields_y.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // num_fields_x
             // 
@@ -189,7 +189,7 @@
             num_fields_x.Name = "num_fields_x";
             num_fields_x.Size = new Size(120, 23);
             num_fields_x.TabIndex = 2;
-            num_fields_x.Value = new decimal(new int[] { 4, 0, 0, 0 });
+            num_fields_x.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // num_size_y
             // 
@@ -199,7 +199,7 @@
             num_size_y.Name = "num_size_y";
             num_size_y.Size = new Size(120, 23);
             num_size_y.TabIndex = 1;
-            num_size_y.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            num_size_y.Value = new decimal(new int[] { 30, 0, 0, 0 });
             // 
             // num_size_x
             // 
@@ -209,7 +209,7 @@
             num_size_x.Name = "num_size_x";
             num_size_x.Size = new Size(120, 23);
             num_size_x.TabIndex = 0;
-            num_size_x.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            num_size_x.Value = new decimal(new int[] { 30, 0, 0, 0 });
             // 
             // SnakeForm
             // 
