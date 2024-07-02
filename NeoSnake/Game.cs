@@ -40,7 +40,7 @@ namespace NeoSnake
             // Initialize apple to prevent the warning
             // This position will be overwritten when initializing the form
             this.apple = new Position(0, 0);
-            spawnApple();
+            SpawnApple();
 
             // Initialize game field array
             for (int y = 0; y < fieldsY; y++)
@@ -66,30 +66,30 @@ namespace NeoSnake
             }
 
             // Register key down hander
-            snakeForm.KeyDown += keyDownHandler;
+            snakeForm.KeyDown += KeyDownHandler;
 
             // Render game for the first time
-            render();
+            Render();
 
             // Create the timer
             gameTimer = new System.Windows.Forms.Timer();
             gameTimer.Interval = tickDuration;
-            gameTimer.Tick += tick;
+            gameTimer.Tick += Tick;
         }
 
-        public void start()
+        public void Start()
         {
             gameTimer.Start();
             gameTimer.Enabled = true;
         }
 
-        private void tick(object? sender, EventArgs e)
+        private void Tick(object? sender, EventArgs e)
         {
-            update();
+            Update();
             // render(); //TBD: Move render call to tick method from update method
         }
 
-        private void update()
+        private void Update()
         {
             Position buttPosition = new Position(body[body.Count - 1].x, body[body.Count - 1].y);
 
@@ -139,7 +139,7 @@ namespace NeoSnake
             }
 
             // Check if game is over
-            if (isGameOver())
+            if (IsGameOver())
             {
                 gameTimer.Stop();
                 running = false;
@@ -147,10 +147,10 @@ namespace NeoSnake
 
                 Label resultLabel = new Label();
 
-                if (hasWon())
+                if (HasWon())
                 {
                     resultLabel.Text = "You've won!";
-                    render(false);
+                    Render(false);
                 }
                 else
                 {
@@ -177,14 +177,14 @@ namespace NeoSnake
             if (spawnNewApple)
             {
                 // Spawn a new apple
-                spawnApple();
+                SpawnApple();
             }
 
             // Render game fields
-            if (running) render();
+            if (running) Render();
         }
 
-        private void render(bool renderApple = true)
+        private void Render(bool renderApple = true)
         {
             // Clear game field
             for (int x = 0; x < fieldsX; x++)
@@ -208,7 +208,7 @@ namespace NeoSnake
             if (renderApple) gameField[apple.x, apple.y].BackColor = Color.DarkRed;
         }
 
-        private void keyDownHandler(object sender, KeyEventArgs e)
+        private void KeyDownHandler(object sender, KeyEventArgs e)
         {
             // Set moving direction of the snake based on the inputs
             // Also preventing that the snake just "reverses" 
@@ -243,7 +243,7 @@ namespace NeoSnake
             }
         }
 
-        private void spawnApple()
+        private void SpawnApple()
         {
             // Spawn a new apple at a random position
             // If the new apple is spawned inside the player, then spawn a new one until one is spawned outside the player
@@ -275,7 +275,7 @@ namespace NeoSnake
 
         }
 
-        private bool isGameOver()
+        private bool IsGameOver()
         {
             // Check if snake is outside of the game field
             if (head.x < 0 || head.x >= fieldsX || head.y < 0 || head.y >= fieldsY)
@@ -298,7 +298,7 @@ namespace NeoSnake
             return false;
         }
 
-        private bool hasWon()
+        private bool HasWon()
         {
             if (body.Count == fieldsX * fieldsY - 1)
             {
