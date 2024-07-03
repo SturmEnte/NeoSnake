@@ -58,6 +58,11 @@
             return defaultLooksName;
         }
 
+        public string[] GetLooksList()
+        {
+            return looks.Keys.ToArray();
+        }
+
         public Looks GetLooksByName(string name)
         {
             return looks[name];
