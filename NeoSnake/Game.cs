@@ -300,6 +300,8 @@ namespace NeoSnake
 
         private bool HasWon()
         {
+            // If the amount of body parts is 1 less than the total amount of game fields (because the head does not to the body)
+            // Then the game is won
             if (body.Count == fieldsX * fieldsY - 1)
             {
                 return true;
