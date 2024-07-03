@@ -44,7 +44,7 @@ namespace NeoSnake
 
             PictureBox apple = new PictureBox();
             apple.BorderStyle = BorderStyle.FixedSingle;
-            apple.BackColor = Color.Red;
+            apple.BackColor = Color.DarkRed;
 
             Looks looks = new Looks(gameTile, head, body, apple);
 
