@@ -45,13 +45,18 @@ namespace NeoSnake
             this.apple = new Position(0, 0);
             SpawnApple();
 
+            PictureBox looksTile = looks.GetTile();
+
             // Initialize game field array
             for (int y = 0; y < fieldsY; y++)
             {
                 for (int x = 0; x < fieldsX; x++)
                 {
                     PictureBox gameTile = new PictureBox();
-                    gameTile.BorderStyle = BorderStyle.FixedSingle;
+
+                    gameTile.BorderStyle = looksTile.BorderStyle;
+                    gameTile.BackColor = looksTile.BackColor;
+
                     gameTile.SetBounds(x * fieldWidth, y * fieldHeight, fieldWidth, fieldHeight);
                     gameField[x, y] = gameTile;
                     snakeForm.Controls.Add(gameTile);
@@ -189,26 +194,38 @@ namespace NeoSnake
 
         private void Render(bool renderApple = true)
         {
+            PictureBox looksTile = looks.GetTile();
+            PictureBox looksHead = looks.GetHead();
+            PictureBox looksBody = looks.GetBody();
+            PictureBox looksApple = looks.GetApple();
+
             // Clear game field
             for (int x = 0; x < fieldsX; x++)
             {
                 for (int y = 0; y < fieldsY; y++)
                 {
-                    gameField[x, y].BackColor = Color.White;
+                    gameField[x, y].BorderStyle = looksTile.BorderStyle;
+                    gameField[x, y].BackColor = looksTile.BackColor;
                 }
             }
 
             // Render head
-            gameField[head.x, head.y].BackColor = Color.DarkGreen;
+            gameField[head.x, head.y].BorderStyle = looksHead.BorderStyle;
+            gameField[head.x, head.y].BackColor = looksHead.BackColor;
 
             // Render body
             for (int i = 0; i < body.Count; i++)
             {
-                gameField[body[i].x, body[i].y].BackColor = Color.Green;
+                gameField[body[i].x, body[i].y].BorderStyle = looksBody.BorderStyle;
+                gameField[body[i].x, body[i].y].BackColor = looksBody.BackColor;
             }
 
             // Render apple
-            if (renderApple) gameField[apple.x, apple.y].BackColor = Color.DarkRed;
+            if (renderApple)
+            {
+                gameField[apple.x, apple.y].BorderStyle = looksApple.BorderStyle;
+                gameField[apple.x, apple.y].BackColor = looksApple.BackColor;
+            }
         }
 
         private void KeyDownHandler(object sender, KeyEventArgs e)
