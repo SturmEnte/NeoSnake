@@ -7,7 +7,7 @@
         private PictureBox body;
         private PictureBox apple;
 
-        Looks(PictureBox tile, PictureBox head, PictureBox body, PictureBox apple)
+        public Looks(PictureBox tile, PictureBox head, PictureBox body, PictureBox apple)
         {
             this.tile = tile;
             this.head = head;
