@@ -137,7 +137,7 @@
             // 
             lbl_title.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             lbl_title.AutoSize = true;
-            lbl_title.Location = new Point(148, 20);
+            lbl_title.Location = new Point(149, 18);
             lbl_title.Name = "lbl_title";
             lbl_title.Size = new Size(60, 15);
             lbl_title.TabIndex = 7;
@@ -227,10 +227,12 @@
             // cbox_looks
             // 
             cbox_looks.FormattingEnabled = true;
+            cbox_looks.Items.AddRange(new object[] { "Default" });
             cbox_looks.Location = new Point(21, 235);
             cbox_looks.Name = "cbox_looks";
             cbox_looks.Size = new Size(121, 23);
             cbox_looks.TabIndex = 15;
+            cbox_looks.Text = "Default";
             // 
             // SnakeForm
             // 
