@@ -43,6 +43,8 @@
             num_fields_x = new NumericUpDown();
             num_size_y = new NumericUpDown();
             num_size_x = new NumericUpDown();
+            lbl_looks = new Label();
+            cbox_looks = new ComboBox();
             panel_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)num_start_body_elements).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_tick_duration).BeginInit();
@@ -54,6 +56,8 @@
             // 
             // panel_menu
             // 
+            panel_menu.Controls.Add(cbox_looks);
+            panel_menu.Controls.Add(lbl_looks);
             panel_menu.Controls.Add(lbl_y);
             panel_menu.Controls.Add(lbl_x);
             panel_menu.Controls.Add(lbl_starting_body_elements);
@@ -211,6 +215,23 @@
             num_size_x.TabIndex = 0;
             num_size_x.Value = new decimal(new int[] { 30, 0, 0, 0 });
             // 
+            // lbl_looks
+            // 
+            lbl_looks.AutoSize = true;
+            lbl_looks.Location = new Point(21, 217);
+            lbl_looks.Name = "lbl_looks";
+            lbl_looks.Size = new Size(38, 15);
+            lbl_looks.TabIndex = 14;
+            lbl_looks.Text = "Looks";
+            // 
+            // cbox_looks
+            // 
+            cbox_looks.FormattingEnabled = true;
+            cbox_looks.Location = new Point(21, 235);
+            cbox_looks.Name = "cbox_looks";
+            cbox_looks.Size = new Size(121, 23);
+            cbox_looks.TabIndex = 15;
+            // 
             // SnakeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -252,5 +273,7 @@
         private Label lbl_starting_body_elements;
         private Label lbl_y;
         private Label lbl_x;
+        private Label lbl_looks;
+        private ComboBox cbox_looks;
     }
 }
