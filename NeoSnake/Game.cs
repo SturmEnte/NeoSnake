@@ -20,16 +20,19 @@ namespace NeoSnake
         int fieldWidth, fieldHeight;
         int startingBodyElements;
 
+        Looks looks;
+
         System.Windows.Forms.Timer gameTimer;
         SnakeForm snakeForm;
 
-        public Game(int fieldsX, int fieldsY, int fieldWidth, int fieldHeight, int tickDuration, int startingBodyElements, SnakeForm snakeForm) 
+        public Game(int fieldsX, int fieldsY, int fieldWidth, int fieldHeight, int tickDuration, int startingBodyElements, Looks looks, SnakeForm snakeForm) 
         {
             this.fieldsX = fieldsX;
             this.fieldsY = fieldsY;
             this.fieldWidth = fieldWidth;
             this.fieldHeight = fieldHeight;
             this.startingBodyElements = startingBodyElements;
+            this.looks = looks;
             this.snakeForm = snakeForm;
 
             this.random = new Random();
