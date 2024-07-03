@@ -18,7 +18,7 @@ namespace NeoSnake
             // Resize window to start menu size
             this.ClientSize = new Size(panel_menu.Width, panel_menu.Height);
             // Center the window aftert resizing it
-            this.CenterToScreen();
+            Center();
         }
 
         // Centers the window to the screen
