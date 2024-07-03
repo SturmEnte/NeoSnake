@@ -3,11 +3,13 @@ namespace NeoSnake
     public partial class SnakeForm : Form
     {
         Game game;
-            
+        LookManager lookManager;    
+
         // This warning can be ignored
         public SnakeForm()
         {
             InitializeComponent();
+            lookManager = new LookManager();
         }
 
         private void SnakeForm_Load(object sender, EventArgs e)
@@ -30,23 +32,7 @@ namespace NeoSnake
 
         private void button_start_Click(object sender, EventArgs e)
         {
-            PictureBox gameTile = new PictureBox();
-            gameTile.BorderStyle = BorderStyle.FixedSingle;
-            gameTile.BackColor = Color.White;
-
-            PictureBox head = new PictureBox();
-            head.BorderStyle = BorderStyle.FixedSingle;
-            head.BackColor = Color.DarkGreen;
-
-            PictureBox body = new PictureBox();
-            body.BorderStyle = BorderStyle.FixedSingle;
-            body.BackColor = Color.Green;
-
-            PictureBox apple = new PictureBox();
-            apple.BorderStyle = BorderStyle.FixedSingle;
-            apple.BackColor = Color.DarkRed;
-
-            Looks looks = new Looks(gameTile, head, body, apple);
+            Looks looks = lookManager.GetLooksByName(cbox_looks.Text);
 
             panel_menu.Hide();
             game = new Game((int)num_fields_x.Value, (int)num_fields_y.Value, (int)num_size_x.Value, (int)num_size_y.Value, (int)num_tick_duration.Value, (int)num_start_body_elements.Value, looks, this);
