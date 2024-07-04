@@ -34,6 +34,7 @@ namespace NeoSnake
             
         }
 
+        // The return value is not used but with void it does not work for some reason
         private bool ReturnToMenu()
         {
             game.Delete();
