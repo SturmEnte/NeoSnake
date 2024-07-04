@@ -29,7 +29,7 @@
             defaultApple.BackColor = Color.DarkRed;
 
             Looks defaultLook = new Looks(defaultGameTile, defaultHead, defaultBody, defaultApple);
-            looks.Add("Clear_code Assets", defaultLook);
+            looks.Add("Default", defaultLook);
 
             // Clean_code Assets
             PictureBox ccTile = new PictureBox();
@@ -46,7 +46,7 @@
 
             PictureBox ccApple = new PictureBox();
             ccApple.BorderStyle = BorderStyle.None;
-            ccApple.Image = Image.FromFile("apple.png");
+            //ccApple.Image = Image.FromFile("apple.png");
             ccApple.SizeMode = PictureBoxSizeMode.StretchImage;
 
             Looks ccLook = new Looks(ccTile, ccHead, ccBody, ccApple);
