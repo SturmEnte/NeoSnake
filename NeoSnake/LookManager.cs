@@ -1,4 +1,6 @@
-﻿namespace NeoSnake
+﻿using NeoSnake.Properties;
+
+namespace NeoSnake
 {
     // This class contains all looks that are available in the game
     // The looks are hard coded into the game
@@ -46,7 +48,8 @@
 
             PictureBox ccApple = new PictureBox();
             ccApple.BorderStyle = BorderStyle.None;
-            //ccApple.Image = Image.FromFile("apple.png");
+            ccApple.Image = Resources.apple;
+            ccBody.SizeMode = PictureBoxSizeMode.StretchImage;
             ccApple.SizeMode = PictureBoxSizeMode.StretchImage;
 
             Looks ccLook = new Looks(ccTile, ccHead, ccBody, ccApple);

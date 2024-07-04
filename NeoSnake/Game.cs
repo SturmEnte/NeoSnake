@@ -233,6 +233,7 @@ namespace NeoSnake
                 {
                     gameField[x, y].BorderStyle = looksTile.BorderStyle;
                     gameField[x, y].BackColor = looksTile.BackColor;
+                    gameField[x, y].Image = null;
                 }
             }
 
@@ -252,6 +253,8 @@ namespace NeoSnake
             {
                 gameField[apple.x, apple.y].BorderStyle = looksApple.BorderStyle;
                 gameField[apple.x, apple.y].BackColor = looksApple.BackColor;
+                gameField[apple.x, apple.y].Image = looksApple.Image;
+                gameField[apple.x, apple.y].SizeMode = looksApple.SizeMode;
             }
         }
         
