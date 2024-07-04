@@ -21,6 +21,17 @@ namespace NeoSnake
             this.ClientSize = new Size(panel_menu.Width, panel_menu.Height);
             // Center the window aftert resizing it
             Center();
+
+            // Add looks to the look selector
+            string[] looks = lookManager.GetLooksList();
+            cbox_looks.Items.Clear();
+            foreach (string look in looks)
+            {
+                cbox_looks.Items.Add(look);
+            }
+            cbox_looks.Text = lookManager.GetDefaultLooksName();
+
+            
         }
 
         // Centers the window to the screen
