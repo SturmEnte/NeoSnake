@@ -22,10 +22,12 @@ namespace NeoSnake
 
         Looks looks;
 
+        Delegate returnToMenuFunc;
+
         System.Windows.Forms.Timer gameTimer;
         SnakeForm snakeForm;
 
-        public Game(int fieldsX, int fieldsY, int fieldWidth, int fieldHeight, int tickDuration, int startingBodyElements, Looks looks, SnakeForm snakeForm) 
+        public Game(int fieldsX, int fieldsY, int fieldWidth, int fieldHeight, int tickDuration, int startingBodyElements, Looks looks, Func<bool> returnToMenuFunc, SnakeForm snakeForm) 
         {
             this.fieldsX = fieldsX;
             this.fieldsY = fieldsY;
@@ -180,6 +182,19 @@ namespace NeoSnake
                 //resultLabel.Anchor = (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left);
                 snakeForm.Controls.Add(resultLabel);
                 resultLabel.BringToFront();
+
+                Button returnToMenuButton = new Button();
+                returnToMenuButton.Font = new Font("Consolas", 20);
+                returnToMenuButton.AutoSize = true;
+                returnToMenuButton.BackColor = Color.Transparent;
+                returnToMenuButton.Text = "Return to menu";
+                returnToMenuButton.Click += (sender, args) =>
+                    {
+                        returnToMenuFunc.DynamicInvoke();
+                    };
+                snakeForm.Controls.Add(returnToMenuButton);
+                returnToMenuButton.BringToFront();
+
             }
 
             if (spawnNewApple)
@@ -227,7 +242,7 @@ namespace NeoSnake
                 gameField[apple.x, apple.y].BackColor = looksApple.BackColor;
             }
         }
-
+        
         private void KeyDownHandler(object sender, KeyEventArgs e)
         {
             // Set moving direction of the snake based on the inputs

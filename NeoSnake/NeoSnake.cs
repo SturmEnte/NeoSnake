@@ -34,6 +34,11 @@ namespace NeoSnake
             
         }
 
+        private bool ReturnToMenu()
+        {
+            return false;
+        }
+
         // Centers the window to the screen
         // This method is necisarily for the Game class to be able to center for some reason
         public void Center()
@@ -46,7 +51,7 @@ namespace NeoSnake
             Looks looks = lookManager.GetLooksByName(cbox_looks.Text);
 
             panel_menu.Hide();
-            game = new Game((int)num_fields_x.Value, (int)num_fields_y.Value, (int)num_size_x.Value, (int)num_size_y.Value, (int)num_tick_duration.Value, (int)num_start_body_elements.Value, looks, this);
+            game = new Game((int)num_fields_x.Value, (int)num_fields_y.Value, (int)num_size_x.Value, (int)num_size_y.Value, (int)num_tick_duration.Value, (int)num_start_body_elements.Value, looks, new Func<bool>(ReturnToMenu), this);
             game.Start();
         }
     }
