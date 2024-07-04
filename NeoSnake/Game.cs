@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace NeoSnake
 {
@@ -27,6 +28,9 @@ namespace NeoSnake
         System.Windows.Forms.Timer gameTimer;
         SnakeForm snakeForm;
 
+        Button endScreenButton;
+        Label endScreenLabel;
+
         public Game(int fieldsX, int fieldsY, int fieldWidth, int fieldHeight, int tickDuration, int startingBodyElements, Looks looks, Func<bool> returnToMenuFunc, SnakeForm snakeForm) 
         {
             this.fieldsX = fieldsX;
@@ -35,9 +39,14 @@ namespace NeoSnake
             this.fieldHeight = fieldHeight;
             this.startingBodyElements = startingBodyElements;
             this.looks = looks;
+            this.returnToMenuFunc = returnToMenuFunc;
             this.snakeForm = snakeForm;
 
             this.random = new Random();
+
+            // This is only to prevent the program from spiting warnings and errors
+            this.endScreenButton = new Button();
+            this.endScreenLabel = new Label();
 
             this.head = new Position((int)Math.Round(fieldsX / (float)2), (int)Math.Round(fieldsY / (float)2));
             this.body = new List<Position>();
@@ -195,6 +204,9 @@ namespace NeoSnake
                 snakeForm.Controls.Add(returnToMenuButton);
                 returnToMenuButton.BringToFront();
 
+                this.endScreenButton = returnToMenuButton;
+                this.endScreenLabel = resultLabel;
+                 
             }
 
             if (spawnNewApple)
@@ -342,6 +354,17 @@ namespace NeoSnake
                 return true;
             }
             return false;
+        }
+
+        public void Delete()
+        {
+            foreach (var field in gameField)
+            {
+                field.Dispose();
+            }
+
+            this.endScreenLabel.Dispose();
+            this.endScreenButton.Dispose();
         }
     }
 }

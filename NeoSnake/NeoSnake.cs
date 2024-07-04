@@ -36,6 +36,7 @@ namespace NeoSnake
 
         private bool ReturnToMenu()
         {
+            game.Delete();
             return false;
         }
 
