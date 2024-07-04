@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel_menu = new Panel();
+            cbox_looks = new ComboBox();
+            lbl_looks = new Label();
             lbl_y = new Label();
             lbl_x = new Label();
             lbl_starting_body_elements = new Label();
@@ -43,8 +45,7 @@
             num_fields_x = new NumericUpDown();
             num_size_y = new NumericUpDown();
             num_size_x = new NumericUpDown();
-            lbl_looks = new Label();
-            cbox_looks = new ComboBox();
+            pictureBox1 = new PictureBox();
             panel_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)num_start_body_elements).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_tick_duration).BeginInit();
@@ -52,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)num_fields_x).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_size_y).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_size_x).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel_menu
@@ -76,6 +78,25 @@
             panel_menu.Name = "panel_menu";
             panel_menu.Size = new Size(367, 318);
             panel_menu.TabIndex = 0;
+            // 
+            // cbox_looks
+            // 
+            cbox_looks.FormattingEnabled = true;
+            cbox_looks.Items.AddRange(new object[] { "Default" });
+            cbox_looks.Location = new Point(21, 235);
+            cbox_looks.Name = "cbox_looks";
+            cbox_looks.Size = new Size(121, 23);
+            cbox_looks.TabIndex = 15;
+            cbox_looks.Text = "Default";
+            // 
+            // lbl_looks
+            // 
+            lbl_looks.AutoSize = true;
+            lbl_looks.Location = new Point(21, 217);
+            lbl_looks.Name = "lbl_looks";
+            lbl_looks.Size = new Size(38, 15);
+            lbl_looks.TabIndex = 14;
+            lbl_looks.Text = "Looks";
             // 
             // lbl_y
             // 
@@ -215,30 +236,22 @@
             num_size_x.TabIndex = 0;
             num_size_x.Value = new decimal(new int[] { 30, 0, 0, 0 });
             // 
-            // lbl_looks
+            // pictureBox1
             // 
-            lbl_looks.AutoSize = true;
-            lbl_looks.Location = new Point(21, 217);
-            lbl_looks.Name = "lbl_looks";
-            lbl_looks.Size = new Size(38, 15);
-            lbl_looks.TabIndex = 14;
-            lbl_looks.Text = "Looks";
-            // 
-            // cbox_looks
-            // 
-            cbox_looks.FormattingEnabled = true;
-            cbox_looks.Items.AddRange(new object[] { "Default" });
-            cbox_looks.Location = new Point(21, 235);
-            cbox_looks.Name = "cbox_looks";
-            cbox_looks.Size = new Size(121, 23);
-            cbox_looks.TabIndex = 15;
-            cbox_looks.Text = "Default";
+            pictureBox1.Image = Properties.Resources.apple;
+            pictureBox1.Location = new Point(278, 365);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 50);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
             // SnakeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(482, 421);
+            Controls.Add(pictureBox1);
             Controls.Add(panel_menu);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             KeyPreview = true;
@@ -255,6 +268,7 @@
             ((System.ComponentModel.ISupportInitialize)num_fields_x).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_size_y).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_size_x).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -277,5 +291,6 @@
         private Label lbl_x;
         private Label lbl_looks;
         private ComboBox cbox_looks;
+        private PictureBox pictureBox1;
     }
 }
