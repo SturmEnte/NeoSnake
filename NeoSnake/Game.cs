@@ -365,6 +365,7 @@ namespace NeoSnake
 
             this.endScreenLabel.Dispose();
             this.endScreenButton.Dispose();
+            this.gameTimer.Dispose();
         }
     }
 }
