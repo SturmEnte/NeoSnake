@@ -14,13 +14,7 @@ namespace NeoSnake
 
         private void SnakeForm_Load(object sender, EventArgs e)
         {
-            // Move start menu to the top left corner
-            panel_menu.Left = 0;
-            panel_menu.Top = 0;
-            // Resize window to start menu size
-            this.ClientSize = new Size(panel_menu.Width, panel_menu.Height);
-            // Center the window aftert resizing it
-            Center();
+            ShowMenu();
 
             // Add looks to the look selector
             string[] looks = lookManager.GetLooksList();
@@ -34,10 +28,25 @@ namespace NeoSnake
             
         }
 
+        private void ShowMenu()
+        {
+            // Make menu visible
+            panel_menu.Show();
+            // Move start menu to the top left corner
+            panel_menu.Left = 0;
+            panel_menu.Top = 0;
+            // Resize window to start menu size
+            this.ClientSize = new Size(panel_menu.Width, panel_menu.Height);
+            // Center the window aftert resizing it
+            Center();
+        }
+
         // The return value is not used but with void it does not work for some reason
         private bool ReturnToMenu()
         {
             game.Delete();
+            
+            ShowMenu();
             return false;
         }
 
